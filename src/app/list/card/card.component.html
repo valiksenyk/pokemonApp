@@ -1,0 +1,30 @@
+<mat-card>
+  <div class="card-header">
+    <p>{{pokemon.name}}</p>
+    <img class="delete-icon" *ngIf="compareMode" (click)="delete()" src="../../../assets/icons/close.svg" alt="">
+    <div>
+      <img [src]="pokemon.image" alt="">
+    </div>
+  </div>
+  <div class="skills-container">
+    <div class="titles">
+      <p>speed</p>
+      <p>specDefense</p>
+      <p>specAttack</p>
+      <p>defense</p>
+      <p>hp</p>
+      <p>attack</p>
+    </div>
+    <div class="state">
+      <mat-progress-bar mode="determinate" [value]="pokemon.skills.speed"></mat-progress-bar>
+      <mat-progress-bar mode="determinate" [value]="pokemon.skills.specialDefense"></mat-progress-bar>
+      <mat-progress-bar mode="determinate" [value]="pokemon.skills.specialAttack"></mat-progress-bar>
+      <mat-progress-bar mode="determinate" [value]="pokemon.skills.defense"></mat-progress-bar>
+      <mat-progress-bar mode="determinate" [value]="pokemon.skills.hp"></mat-progress-bar>
+      <mat-progress-bar mode="determinate" [value]="pokemon.skills.attack"></mat-progress-bar>
+    </div>
+  </div>
+  <div *ngIf="!compareMode" class="btn-container">
+    <button [disabled]="addedToCompare" (click)="compare()" mat-raised-button color="warn">Compare</button>
+  </div>
+</mat-card>

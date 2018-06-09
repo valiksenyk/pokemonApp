@@ -1,0 +1,35 @@
+<div class="list-container">
+  <div class="search-row">
+    <div>
+    <mat-form-field class="">
+      <input matInput placeholder="Pokemon name or id" [(ngModel)]="searchModel" (keyup.enter)="searchPokemon()">
+    </mat-form-field>
+      <button class="compare-btn" (click)="searchPokemon()" mat-raised-button color="primary">
+        SEARCH
+      </button>
+    </div>
+    <div class="right-side-text">
+    <p class="gen-list-label">General Pokemons list <br> click to add</p>
+    </div>
+  </div>
+  <div class="list-rows-wrapper">
+    <div class="list-row">
+      <app-card *ngFor="let item of pokemons" [pokemon]="item" [compareMode]="false"></app-card>
+    </div>
+    <div class="general-list">
+      <mat-list  role="list"
+                 data-infinite-scroll
+                 debounce
+                 [scrollWindow]="false"
+                 [infiniteScrollDistance]="scrollDistance"
+                 [infiniteScrollUpDistance]="scrollUpDistance"
+                 [infiniteScrollThrottle]="throttle"
+                 (scrolled)="loadMore()">
+        <div *ngIf="!generalList.length" class="spinner-container">
+        <mat-spinner [diameter]="40"></mat-spinner>
+        </div>
+        <mat-list-item *ngFor="let item of generalList" (click)="addPokemon(item.name)" role="listitem">{{item.name}}</mat-list-item>
+      </mat-list>
+    </div>
+  </div>
+</div>

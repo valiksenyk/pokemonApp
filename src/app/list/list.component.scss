@@ -1,0 +1,54 @@
+.list-container {
+  margin: 0 30px;
+
+  .search-row {
+    width: 100%;
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+
+    .gen-list-label {
+      font-family: Lato;
+      padding-right: 50px;
+      text-align: center;
+    }
+  }
+
+  .list-rows-wrapper {
+    display: flex;
+
+    .list-row {
+      width: 80%;
+      display: flex;
+      flex-flow: row wrap;
+
+      app-card {
+        width: 20%;
+        margin: 10px 15px;
+      }
+    }
+
+    .general-list {
+      width: 20%;
+      display: flex;
+      flex-direction: column;
+      font-size: 27px;
+      overflow: auto;
+      height: 400px;
+
+      mat-list {
+        height: 400px;
+        overflow: auto;
+
+        mat-list-item {
+          cursor: pointer;
+        }
+
+        .spinner-container {
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+  }
+}

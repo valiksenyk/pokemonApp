@@ -1,0 +1,26 @@
+<div class="compare-container">
+  <div class="compare-area">
+    <mat-card *ngIf="!pokemons.length" class="empty-card">
+      <p>?</p>
+    </mat-card>
+    <app-card *ngIf="pokemons.length" [pokemon]="pokemons[0]" [compareMode]="true"></app-card>
+    <p class="vs">VS</p>
+    <mat-card *ngIf="pokemons.length <= 1" class="empty-card">
+      <p>?</p>
+    </mat-card>
+    <app-card *ngIf="pokemons.length === 2" [pokemon]="pokemons[1]" [compareMode]="true"></app-card>
+  </div>
+  <div class="btn-area">
+    <div class="win-text">
+      <p *ngIf="winnerIndex === 0">WINNER!</p>
+    </div>
+    <div class="win-text">
+    <button class="compare-btn" [disabled]="pokemons.length < 2" (click)="compare()" mat-raised-button color="warn">
+      COMPARE
+    </button>
+    </div>
+    <div class="win-text">
+      <p *ngIf="winnerIndex === 1">WINNER!</p>
+    </div>
+  </div>
+</div>
