@@ -47,19 +47,6 @@ export class CardComponent implements OnInit {
                   duration: 2000,
                 });
         })
-    // this._compareService.add(this.pokemon)
-    //   .then(
-    //     () => {
-    //       this.addedToCompare = true;
-    //       this.snackBar.open("Pokemon has been added to comparison", "", {
-    //         duration: 2000,
-    //       });
-    //     },
-    //     error => {
-    //       this.snackBar.open("You can compare 2 card in same time", "", {
-    //         duration: 2000,
-    //       });
-    //     });
   }
 
   public delete() {

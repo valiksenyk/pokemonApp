@@ -1,5 +1,4 @@
 import {Injectable} from "@angular/core";
-import {MatSnackBar} from "@angular/material";
 import {Observable} from "rxjs/Observable";
 
 @Injectable()
@@ -7,7 +6,7 @@ export class CompareService {
 
   compareList: Array<any> = [];
 
-  constructor(public snackBar: MatSnackBar) {}
+  constructor() {}
 
   public add(pokemon) {
     return new Observable((observer) => {
